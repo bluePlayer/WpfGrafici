@@ -1,0 +1,266 @@
+﻿<Window x:Class="WpfGraficiVezhba.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfGraficiVezhba"
+        xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=DotNetProjects.DataVisualization.Toolkit"
+        xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=DotNetProjects.DataVisualization.Toolkit"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="График 1">
+                <chartingToolkit:Chart>
+
+                    <chartingToolkit:Chart.Axes>
+                        <chartingToolkit:CategoryAxis Orientation="X">
+                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                <Style x:Name="labelStyleX2" TargetType="Control">
+                                    <Setter Property="FontSize" Value="15"/>
+                                    <Setter Property="LayoutTransform" >
+                                        <Setter.Value>
+                                            <RotateTransform  Angle="-45" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </Style>
+                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                        </chartingToolkit:CategoryAxis>
+                    </chartingToolkit:Chart.Axes>
+                    <chartingToolkit:Chart.LegendStyle>
+                        <Style TargetType="visualizationToolkit:Legend">
+                            <Setter Property="Width" Value="1" />
+                        </Style>
+                    </chartingToolkit:Chart.LegendStyle>
+                    <chartingToolkit:Chart.Series>
+
+                        <chartingToolkit:LineSeries ItemsSource="{Binding RealWorkloadItems}"   
+                                  DependentValuePath="Value"   
+                                  IndependentValuePath="Month">
+                            <chartingToolkit:LineSeries.LegendItemStyle >
+                                <Style TargetType="chartingToolkit:LegendItem">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Style>
+                            </chartingToolkit:LineSeries.LegendItemStyle>
+                        </chartingToolkit:LineSeries>
+
+                        <chartingToolkit:LineSeries ItemsSource="{Binding PlannedWorkloadItems}"   
+                                  DependentValuePath="Value"   
+                                  IndependentValuePath="Month">
+                            <chartingToolkit:LineSeries.LegendItemStyle >
+                                <Style TargetType="chartingToolkit:LegendItem">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Style>
+                            </chartingToolkit:LineSeries.LegendItemStyle>
+                        </chartingToolkit:LineSeries>
+                    </chartingToolkit:Chart.Series>
+                </chartingToolkit:Chart>
+            </TabItem>
+
+            <TabItem Header="График 2">
+                <chartingToolkit:Chart>
+
+                    <chartingToolkit:Chart.Axes>
+                        <chartingToolkit:CategoryAxis Orientation="X">
+                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                <Style x:Name="labelStyleX3" TargetType="Control">
+                                    <Setter Property="FontSize" Value="15"/>
+                                    <Setter Property="LayoutTransform" >
+                                        <Setter.Value>
+                                            <RotateTransform  Angle="-45" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </Style>
+                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                        </chartingToolkit:CategoryAxis>
+                    </chartingToolkit:Chart.Axes>
+                    <chartingToolkit:Chart.LegendStyle>
+                        <Style TargetType="visualizationToolkit:Legend">
+                            <Setter Property="Width" Value="1" />
+                        </Style>
+                    </chartingToolkit:Chart.LegendStyle>
+                    <chartingToolkit:Chart.Series>
+
+                        <chartingToolkit:LineSeries ItemsSource="{Binding RealWorkloadItems}"   
+                                  DependentValuePath="Value"   
+                                  IndependentValuePath="Month">
+                            <chartingToolkit:LineSeries.LegendItemStyle >
+                                <Style TargetType="chartingToolkit:LegendItem">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Style>
+                            </chartingToolkit:LineSeries.LegendItemStyle>
+                        </chartingToolkit:LineSeries>
+
+                        <chartingToolkit:LineSeries ItemsSource="{Binding PlannedWorkloadItems}"   
+                                  DependentValuePath="Value"   
+                                  IndependentValuePath="Month">
+                            <chartingToolkit:LineSeries.LegendItemStyle >
+                                <Style TargetType="chartingToolkit:LegendItem">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Style>
+                            </chartingToolkit:LineSeries.LegendItemStyle>
+                        </chartingToolkit:LineSeries>
+                    </chartingToolkit:Chart.Series>
+                </chartingToolkit:Chart>
+            </TabItem>
+            <TabItem Header="График 3">
+                <chartingToolkit:Chart>
+                    <chartingToolkit:Chart.Axes>
+                        <chartingToolkit:CategoryAxis Orientation="X">
+                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                <Style x:Name="labelStyleX4" TargetType="Control">
+                                    <Setter Property="FontSize" Value="15"/>
+                                    <Setter Property="LayoutTransform" >
+                                        <Setter.Value>
+                                            <RotateTransform  Angle="-45" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </Style>
+                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                        </chartingToolkit:CategoryAxis>
+                    </chartingToolkit:Chart.Axes>
+                    <chartingToolkit:Chart.Series>
+                        <chartingToolkit:ColumnSeries ItemsSource="{Binding RealWorkloadItems}" 
+                          DependentValuePath="Value" 
+                          IndependentValuePath="Month">
+                            <chartingToolkit:ColumnSeries.LegendItemStyle >
+                                <Style TargetType="chartingToolkit:LegendItem">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Style>
+                            </chartingToolkit:ColumnSeries.LegendItemStyle>
+                            <chartingToolkit:ColumnSeries.DependentRangeAxis>
+                                <chartingToolkit:LinearAxis Minimum="0" Maximum="300" Orientation="Y"/>
+                            </chartingToolkit:ColumnSeries.DependentRangeAxis>
+                        </chartingToolkit:ColumnSeries>
+                        <chartingToolkit:LineSeries ItemsSource="{Binding PlannedWorkloadItems}" 
+                          DependentValuePath="Value" 
+                          IndependentValuePath="Month">
+                            <chartingToolkit:LineSeries.LegendItemStyle >
+                                <Style TargetType="chartingToolkit:LegendItem">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Style>
+                            </chartingToolkit:LineSeries.LegendItemStyle>
+                        </chartingToolkit:LineSeries>
+                    </chartingToolkit:Chart.Series>
+                </chartingToolkit:Chart>
+            </TabItem>
+            <TabItem Header="График 4">
+                <chartingToolkit:Chart>
+                    <chartingToolkit:Chart.Axes>
+                        <chartingToolkit:CategoryAxis Orientation="X">
+                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                <Style x:Name="labelStyleX5" TargetType="Control">
+                                    <Setter Property="FontSize" Value="15"/>
+                                    <Setter Property="LayoutTransform" >
+                                        <Setter.Value>
+                                            <RotateTransform  Angle="-45" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </Style>
+                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                        </chartingToolkit:CategoryAxis>
+                    </chartingToolkit:Chart.Axes>
+                    <chartingToolkit:Chart.Series>
+                        <chartingToolkit:ColumnSeries ItemsSource="{Binding RealWorkloadItems}" 
+                          DependentValuePath="Value" 
+                          IndependentValuePath="Month">
+                            <chartingToolkit:ColumnSeries.LegendItemStyle >
+                                <Style TargetType="chartingToolkit:LegendItem">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Style>
+                            </chartingToolkit:ColumnSeries.LegendItemStyle>
+                            <chartingToolkit:ColumnSeries.DependentRangeAxis>
+                                <chartingToolkit:LinearAxis Minimum="0" Maximum="300" Orientation="Y"/>
+                            </chartingToolkit:ColumnSeries.DependentRangeAxis>
+                        </chartingToolkit:ColumnSeries>
+                    </chartingToolkit:Chart.Series>
+                </chartingToolkit:Chart>
+            </TabItem>
+            <TabItem Header="График 5">
+                <chartingToolkit:Chart>
+                    <chartingToolkit:Chart.Axes>
+                        <chartingToolkit:CategoryAxis Orientation="X">
+                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                <Style x:Name="labelStyleX6" TargetType="Control">
+                                    <Setter Property="FontSize" Value="15"/>
+                                    <Setter Property="LayoutTransform" >
+                                        <Setter.Value>
+                                            <RotateTransform  Angle="-45" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </Style>
+                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                        </chartingToolkit:CategoryAxis>
+                    </chartingToolkit:Chart.Axes>
+                    <chartingToolkit:Chart.Series>
+                        <chartingToolkit:AreaSeries ItemsSource="{Binding RealWorkloadItems}" 
+                          DependentValuePath="Value" 
+                          IndependentValuePath="Month">
+                            <chartingToolkit:AreaSeries.LegendItemStyle >
+                                <Style TargetType="chartingToolkit:LegendItem">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Style>
+                            </chartingToolkit:AreaSeries.LegendItemStyle>
+                            <chartingToolkit:AreaSeries.DependentRangeAxis>
+                                <chartingToolkit:LinearAxis Minimum="0" Maximum="300" Orientation="Y"/>
+                            </chartingToolkit:AreaSeries.DependentRangeAxis>
+                        </chartingToolkit:AreaSeries>
+                        <chartingToolkit:LineSeries ItemsSource="{Binding PlannedWorkloadItems}" 
+                          DependentValuePath="Value" 
+                          IndependentValuePath="Month">
+                            <chartingToolkit:LineSeries.LegendItemStyle >
+                                <Style TargetType="chartingToolkit:LegendItem">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Style>
+                            </chartingToolkit:LineSeries.LegendItemStyle>
+                        </chartingToolkit:LineSeries>
+                    </chartingToolkit:Chart.Series>
+                </chartingToolkit:Chart>
+            </TabItem>
+            <TabItem Header="График 6">
+                <chartingToolkit:Chart>
+                    <chartingToolkit:Chart.Axes>
+                        <chartingToolkit:CategoryAxis Orientation="X">
+                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                <Style x:Name="labelStyleX7" TargetType="Control">
+                                    <Setter Property="FontSize" Value="15"/>
+                                    <Setter Property="LayoutTransform" >
+                                        <Setter.Value>
+                                            <RotateTransform  Angle="-45" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </Style>
+                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                        </chartingToolkit:CategoryAxis>
+                    </chartingToolkit:Chart.Axes>
+                    <chartingToolkit:Chart.Series>
+                        <chartingToolkit:LineSeries ItemsSource="{Binding RealWorkloadItems}" 
+                          DependentValuePath="Value" 
+                          IndependentValuePath="Month">
+                            <chartingToolkit:LineSeries.LegendItemStyle >
+                                <Style TargetType="chartingToolkit:LegendItem">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Style>
+                            </chartingToolkit:LineSeries.LegendItemStyle>
+                        </chartingToolkit:LineSeries>
+                        <chartingToolkit:LineSeries ItemsSource="{Binding PlannedWorkloadItems}" 
+                          DependentValuePath="Value" 
+                          IndependentValuePath="Month">
+                            <chartingToolkit:LineSeries.LegendItemStyle >
+                                <Style TargetType="chartingToolkit:LegendItem">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Style>
+                            </chartingToolkit:LineSeries.LegendItemStyle>
+                        </chartingToolkit:LineSeries>
+                    </chartingToolkit:Chart.Series>
+                </chartingToolkit:Chart>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
