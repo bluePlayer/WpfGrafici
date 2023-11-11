@@ -13,7 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfGraficiVezhba.Code;
-
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
 
 namespace WpfGraficiVezhba
 {
@@ -52,6 +54,70 @@ namespace WpfGraficiVezhba
 
             }
 
+        }
+
+        public class RegInfoResponseObj
+        {
+            public bool status { get; set; }
+            public int code { get; set; }
+            public string message { get; set; }
+        }
+
+        public class RegInfoRequestObj
+        {
+            public string fullname { get; set; }
+        }
+
+        public const string REST_SERVICE_URI = "http://localhost:19006/";
+
+        public async Task<RegInfoResponseObj> RestServiceVezhba(RegInfoRequestObj requestObj)
+        {
+            RegInfoResponseObj responseObj = new RegInfoResponseObj();
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    // Setting Base address.  
+                    client.BaseAddress = new Uri(REST_SERVICE_URI);
+
+                    // Setting content type.  
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    // Setting timeout.  
+                    client.Timeout = TimeSpan.FromSeconds(Convert.ToDouble(1000000));
+
+                    // Initialization.  
+                    HttpResponseMessage response = new HttpResponseMessage();
+
+                    // HTTP POST  
+                    response = await client.PostAsJsonAsync("api/WebApi/PostRegInfo", requestObj).ConfigureAwait(false);
+
+                    // Verification  
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // Reading Response.  
+                        string result = response.Content.ReadAsStringAsync().Result;
+                        responseObj = JsonConvert.DeserializeObject<RegInfoResponseObj>(result);
+
+                        // Releasing.  
+                        response.Dispose();
+                    }
+                    else
+                    {
+                        // Reading Response.  
+                        string result = response.Content.ReadAsStringAsync().Result;
+                        responseObj.code = 602;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
+
+            return responseObj;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿<wsdl:definitions targetNamespace="https://www.nbrm.mk/klservice/">
+﻿
+<wsdl:definitions targetNamespace="https://www.nbrm.mk/klservice/">
   <wsdl:documentation>
   </wsdl:documentation>
   <wsdl:types>
