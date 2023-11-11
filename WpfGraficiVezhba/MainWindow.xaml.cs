@@ -119,5 +119,58 @@ namespace WpfGraficiVezhba
 
             return responseObj;
         }
+
+        public static void saveInfo(string fullname)
+        {
+            try
+            {
+                // Query.  
+                string query = "INSERT INTO [Register] ([fullname])" +
+                                " Values ('" + fullname + "')";
+
+                // Execute.  
+                //DAL.executeQuery(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private async void BtnReg_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Initialization.  
+                string fullname = "Vladimir Z", obj;
+
+                // Save Info to Local DB.  
+                saveInfo(fullname);
+
+                // Sending data to server.  
+                RegInfoRequestObj requestObj = new RegInfoRequestObj { fullname = fullname };
+                RegInfoResponseObj responseObj = await RestServiceVezhba(requestObj);
+
+                // Veerification.  
+                if (responseObj.code == 600)
+                {
+                    // Display Message  
+                    MessageBox.Show("You are Successfully! Registered", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else if (responseObj.code == 602)
+                {
+                    // Display Message  
+                    MessageBox.Show("We are unable to register you at the moment, please try again later", "Fail", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                // Display Message  
+                MessageBox.Show("Something goes wrong, Please try again later.", "Fail", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                Console.Write(ex);
+            }
+        }
     }
 }
