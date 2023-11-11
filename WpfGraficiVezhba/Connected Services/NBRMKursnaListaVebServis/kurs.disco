@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://www.nbrm.mk/klservice/kurs.asmx?wsdl" docRef="https://www.nbrm.mk/klservice/kurs.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://www.nbrm.mk/klservice/kurs.asmx" xmlns:q1="https://www.nbrm.mk/klservice/" binding="q1:KursSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://www.nbrm.mk/klservice/kurs.asmx" xmlns:q2="https://www.nbrm.mk/klservice/" binding="q2:KursSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

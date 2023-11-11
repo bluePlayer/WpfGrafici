@@ -47,6 +47,7 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -65,6 +66,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Connected Services\NBRMKursnaListaVebServis\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseLog.cs">
       <DependentUpon>DBO.tt</DependentUpon>
     </Compile>
@@ -217,9 +223,23 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBO.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Connected Services\NBRMKursnaListaVebServis\kurs.wsdl" />
+    <None Include="Connected Services\NBRMKursnaListaVebServis\WpfGraficiVezhba.NBRMKursnaListaVebServis.GetExchangeRateDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\NBRMKursnaListaVebServis\WpfGraficiVezhba.NBRMKursnaListaVebServis.GetExchangeRateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\NBRMKursnaListaVebServis\WpfGraficiVezhba.NBRMKursnaListaVebServis.GetExchangeRatesDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\NBRMKursnaListaVebServis\WpfGraficiVezhba.NBRMKursnaListaVebServis.GetExchangeRatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="DBO.edmx.diagram">
       <DependentUpon>DBO.edmx</DependentUpon>
     </None>
+    <None Include="NBRMKursnaLista.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -237,6 +257,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\NBRMKursnaListaVebServis\kurs.disco" />
+    <None Include="Connected Services\NBRMKursnaListaVebServis\configuration91.svcinfo" />
+    <None Include="Connected Services\NBRMKursnaListaVebServis\configuration.svcinfo" />
+    <None Include="Connected Services\NBRMKursnaListaVebServis\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="DBO.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBO.edmx</DependentUpon>
@@ -260,6 +287,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\NBRMKursnaListaVebServis\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,209 @@
+﻿<wsdl:definitions targetNamespace="https://www.nbrm.mk/klservice/">
+  <wsdl:documentation>
+  </wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://www.nbrm.mk/klservice/">
+      <s:element name="GetExchangeRateD">
+        <s:complexType>
+          <s:sequence>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExchangeRateDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExchangeRateDResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExchangeRate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExchangeRateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExchangeRateResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExchangeRatesD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime"/>
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExchangeRatesDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExchangeRatesDResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExchangeRates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExchangeRatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExchangeRatesResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetExchangeRateDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExchangeRateD"/>
+  </wsdl:message>
+  <wsdl:message name="GetExchangeRateDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExchangeRateDResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetExchangeRateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExchangeRate"/>
+  </wsdl:message>
+  <wsdl:message name="GetExchangeRateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExchangeRateResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetExchangeRatesDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExchangeRatesD"/>
+  </wsdl:message>
+  <wsdl:message name="GetExchangeRatesDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExchangeRatesDResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetExchangeRatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExchangeRates"/>
+  </wsdl:message>
+  <wsdl:message name="GetExchangeRatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExchangeRatesResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="KursSoap">
+    <wsdl:operation name="GetExchangeRateD">
+      <wsdl:documentation>
+        This XML Web Service method provides information about exchang rate
+      </wsdl:documentation>
+      <wsdl:input message="tns:GetExchangeRateDSoapIn"/>
+      <wsdl:output message="tns:GetExchangeRateDSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetExchangeRate">
+      <wsdl:documentation>
+        This XML Web Service method provides information about exchang rate
+      </wsdl:documentation>
+      <wsdl:input message="tns:GetExchangeRateSoapIn"/>
+      <wsdl:output message="tns:GetExchangeRateSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetExchangeRatesD">
+      <wsdl:documentation>
+        This XML Web Service method provides information about exchange rates
+      </wsdl:documentation>
+      <wsdl:input message="tns:GetExchangeRatesDSoapIn"/>
+      <wsdl:output message="tns:GetExchangeRatesDSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetExchangeRates">
+      <wsdl:documentation>
+        This XML Web Service method provides information about exchange rates
+      </wsdl:documentation>
+      <wsdl:input message="tns:GetExchangeRatesSoapIn"/>
+      <wsdl:output message="tns:GetExchangeRatesSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="KursSoap" type="tns:KursSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetExchangeRateD">
+      <soap:operation soapAction="https://www.nbrm.mk/klservice/GetExchangeRateD" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExchangeRate">
+      <soap:operation soapAction="https://www.nbrm.mk/klservice/GetExchangeRate" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExchangeRatesD">
+      <soap:operation soapAction="https://www.nbrm.mk/klservice/GetExchangeRatesD" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExchangeRates">
+      <soap:operation soapAction="https://www.nbrm.mk/klservice/GetExchangeRates" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="KursSoap12" type="tns:KursSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetExchangeRateD">
+      <soap12:operation soapAction="https://www.nbrm.mk/klservice/GetExchangeRateD" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExchangeRate">
+      <soap12:operation soapAction="https://www.nbrm.mk/klservice/GetExchangeRate" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExchangeRatesD">
+      <soap12:operation soapAction="https://www.nbrm.mk/klservice/GetExchangeRatesD" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExchangeRates">
+      <soap12:operation soapAction="https://www.nbrm.mk/klservice/GetExchangeRates" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Kurs">
+    <wsdl:documentation>
+      This web service provides information about NBRM's exchange rates.
+    </wsdl:documentation>
+    <wsdl:port name="KursSoap" binding="tns:KursSoap">
+      <soap:address location="https://www.nbrm.mk/klservice/kurs.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="KursSoap12" binding="tns:KursSoap12">
+      <soap12:address location="https://www.nbrm.mk/klservice/kurs.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

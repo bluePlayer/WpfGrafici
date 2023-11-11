@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfGraficiVezhba.Code;
 
+
 namespace WpfGraficiVezhba
 {
     /// <summary>
@@ -25,11 +26,32 @@ namespace WpfGraficiVezhba
 
         public MainWindow()
         {
+
             InitializeComponent();
 
             chartData = new ChartDataMVVM();
 
             DataContext = chartData;
+
+            try
+            {
+                System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+
+                NBRMKursnaListaVebServis.KursSoapClient client = new NBRMKursnaListaVebServis.KursSoapClient();
+
+                client.ChannelFactory.CreateChannel();
+
+                Console.WriteLine(client.GetExchangeRateD(new DateTime(2023, 11, 10), DateTime.Today));
+                Console.WriteLine(client.GetExchangeRate("10.11.2023", "11.11.2023"));
+
+                Console.WriteLine(client.GetExchangeRatesD(new DateTime(2023, 11, 10), DateTime.Today));
+                Console.WriteLine(client.GetExchangeRates("10.11.2023", "11.11.2023"));
+            }
+            catch(Exception ex)
+            {
+
+            }
+
         }
     }
 }
